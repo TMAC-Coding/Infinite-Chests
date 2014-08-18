@@ -14,6 +14,6 @@ How to get:
 ===========
 You can either compile it yourself.
 
-or you can get it through [Releases]
+or you can get it through [Releases](https://github.com/TMAC-Coding/Infinite-Chests/releases)
 
 You can also get it from the official Bukkit Dev page at: [Bukkit Page](http://dev.bukkit.org/bukkit-plugins/infinite-chests/)
