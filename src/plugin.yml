@@ -1,0 +1,12 @@
+name: InfiniteChests
+main: me.TMAC_Kratos.InfiniteChests.InfiniteChests
+author: TMAC_Kratos
+version: 0.3
+description: >
+             InfiniteChests. Have infinite chest of any item.
+permissions:
+    infinitechests.placesign:
+        description: Gives access to use a infinitechest sign
+        default: op
+        
+
