@@ -121,6 +121,7 @@ public class InfiniteChestsBlockListener
               {
               	amount = 64;
               }
+          	if (amount > 64) amount = 64;
         if (mat != null)
         {
         	

@@ -37,7 +37,7 @@ public class InfiniteChestsPlayerListener
     if (event.getAction() == Action.RIGHT_CLICK_BLOCK)
     {
       Block block = event.getClickedBlock();
-      if (event.getClickedBlock().getType().name().contains("CHEST") || block.getType() == Material.DISPENSER || block.getType() == Material.DROPPER)
+      if ((block.getType().name().contains("CHEST") && block.getType() != Material.ENDER_CHEST) || block.getType() == Material.DISPENSER || block.getType() == Material.DROPPER)
       {
         World world = event.getPlayer().getWorld();
         Location loc = event.getClickedBlock().getLocation();
@@ -105,7 +105,7 @@ public class InfiniteChestsPlayerListener
                 {
                 	amount = 64;
                 }
-            	
+            	if (amount > 64) amount = 64;
               List<Block> chests = new LinkedList<Block>();
               chests.add(world.getBlockAt(event.getClickedBlock().getLocation()));
               if (event.getClickedBlock().getRelative(BlockFace.SOUTH).getType().name().contains("CHEST")) {
