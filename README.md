@@ -14,7 +14,7 @@ How to get:
 ===========
 You can either compile it yourself.
 
-(Uses Java Project and Ant in eclipse)
+(Uses Java Project and Ant in eclipse, Make sure to target CreateJar Only)
 
 or you can get it through [Releases](https://github.com/TMAC-Coding/Infinite-Chests/releases)
 
