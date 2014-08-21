@@ -3,7 +3,7 @@
 <project name="infinite-chests" default="CreateJar">
   <target name="CreateJar" description="Create Jar file">
         
-  		<jar jarfile="dist/plugins/infinitechests-PR3.jar">
+  		<jar jarfile="dist/plugins/infinitechests-V0.3-PR3.jar">
   		<!--
   	                        <fileset dir="bin"/> (Uncomment line for local build and remove this note)
   	                        -->
