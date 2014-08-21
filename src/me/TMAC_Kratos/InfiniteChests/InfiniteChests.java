@@ -30,7 +30,7 @@ public class InfiniteChests
     PluginDescriptionFile pdfFile = getDescription();
     this.log.info("Loading " + pdfFile.getName() + "...");
     LoadConfiguration();
-    this.blockListener = new InfiniteChestsBlockListener(this, this.Config);
+    this.XlockListener = new InfiniteChestsBlockListener(this, this.Config);
     this.playerListener = new InfiniteChestsPlayerListener(this, this.Config);
     this.pm = getServer().getPluginManager();
     this.pm.registerEvents(blockListener,this);
