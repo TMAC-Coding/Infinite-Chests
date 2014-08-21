@@ -36,7 +36,7 @@ public class InfiniteChestsConfiguration
 	    }
 	    plugin.getConfig().set("AllowedWorlds", worlds);
 	    plugin.saveConfig();
-	    this.allowedWorlds = worlds;
+	    LoadConfiguration();
   }
   
   public boolean LoadConfiguration()
