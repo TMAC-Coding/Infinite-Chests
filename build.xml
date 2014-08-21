@@ -4,7 +4,9 @@
   <target name="CreateJar" description="Create Jar file">
         
   		<jar jarfile="dist/plugins/infinitechests.jar">
-  	                        <fileset dir="bin"/>
+  		<!--
+  	                        <fileset dir="bin"/> (Uncomment line for local build and remove this note)
+  	                        -->
   	                        <fileset file="src/plugin.yml"/>
   			<fileset file="src/config.yml"/>
   	                </jar>
