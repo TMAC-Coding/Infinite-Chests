@@ -38,7 +38,7 @@ public class InfiniteChestsConfiguration
 	    plugin.getConfig().set("AllowedWorlds", worlds);
 	    plugin.getConfig().set("Use-Color-Code", false);
 	    plugin.saveConfig();
-	    this.allowedWorlds = worlds;
+	    LoadConfiguration();
   }
   
   public boolean LoadConfiguration()
