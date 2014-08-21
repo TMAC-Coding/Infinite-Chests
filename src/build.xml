@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <!-- Configuration of the Ant build system to generate a Jar file --> 
-<project name="Wonderland" default="CreateJar">
+<project name="infinite-chests" default="CreateJar">
   <target name="CreateJar" description="Create Jar file">
         
   		<jar jarfile="dist/plugins/infinitechests.jar">
