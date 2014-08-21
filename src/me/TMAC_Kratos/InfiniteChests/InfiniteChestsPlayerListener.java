@@ -37,7 +37,7 @@ public class InfiniteChestsPlayerListener
     if (event.getAction() == Action.RIGHT_CLICK_BLOCK)
     {
       Block block = event.getClickedBlock();
-      if ((block.getType().name().contains("CHEST") && block.getType() != Material.ENDER_CHEST) || block.getType() == Material.DISPENSER || block.getType() == Material.DROPPER)
+      if (block.getType().name().contains("CHEST") && block.getType() != Material.ENDER_CHEST || block.getType() == Material.DISPENSER || block.getType() == Material.DROPPER)
       {
         World world = event.getPlayer().getWorld();
         Location loc = event.getClickedBlock().getLocation();
@@ -47,12 +47,10 @@ public class InfiniteChestsPlayerListener
         {
           Sign sign = (Sign)signBlock.getState();
           if ((sign.getLine(0).equalsIgnoreCase("[infiniteChest]")) || 
-          
-
             (sign.getLine(0).equalsIgnoreCase("[infchest]")) || 
-            
-
-            (sign.getLine(0).equalsIgnoreCase("[ic]")))
+            (sign.getLine(0).equalsIgnoreCase("[ic]")) ||
+            (sign.getLine(0).equalsIgnoreCase("§1[infchest]")) ||
+            (sign.getLine(0).equalsIgnoreCase("§1[ic]")))
           {
             Material mat = null;
             String[] lineargs = (String[])null;
@@ -81,6 +79,7 @@ public class InfiniteChestsPlayerListener
             {
               mat = Material.getMaterial(mats.toUpperCase());
             }
+            if (mat == null) mat = Material.AIR;
             if (mat != null)
             {
             	int meta = 0;
@@ -129,15 +128,17 @@ public class InfiniteChestsPlayerListener
                   {
                     Inventory inv = chest.getInventory();
                     inv.clear();
-                    ItemStack stack;
-                    for (; (inv.firstEmpty() != -1) || (inv.firstEmpty() != 0); inv.setItem(inv.firstEmpty(), stack))
-                    {
-                        stack = new ItemStack(mat, amount,(byte)meta);
-                      
-                      inv.setItem(inv.firstEmpty(), stack);
-                    }
-                    
-                    iterator.next().getState().update();
+                    if (mat != Material.AIR) {
+                        ItemStack stack;
+                        for (; (inv.firstEmpty() != -1) || (inv.firstEmpty() != 0); inv.setItem(inv.firstEmpty(), stack))
+                        {
+                            stack = new ItemStack(mat, amount,(byte)meta);
+                          
+                          inv.setItem(inv.firstEmpty(), stack);
+                        }
+                        
+                        iterator.next().getState().update();
+                        }
                   }
                   else
                   {
@@ -149,7 +150,7 @@ public class InfiniteChestsPlayerListener
             }
             else
             {
-              event.getPlayer().sendMessage("Sign in wrong format! Item ID not properly!");
+              event.getPlayer().sendMessage("Sign in wrong format! Item ID not proper!");
             }
           }
           else {}

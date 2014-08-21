@@ -17,6 +17,7 @@ public class InfiniteChestsConfiguration
   private File pluginconfig;
   private StackableLogger log;
   private List<String> allowedWorlds;
+  boolean allowcolorcode;
   private InfiniteChests plugin;
   
   public InfiniteChestsConfiguration(InfiniteChests plugin)
@@ -35,12 +36,14 @@ public class InfiniteChestsConfiguration
 	      world = (World)iterator.next();
 	    }
 	    plugin.getConfig().set("AllowedWorlds", worlds);
+	    plugin.getConfig().set("Use-Color-Code", false);
 	    plugin.saveConfig();
 	    this.allowedWorlds = worlds;
   }
   
   public boolean LoadConfiguration()
   {
+	this.allowcolorcode = plugin.getConfig().getBoolean("Use-Color-Code");
     this.allowedWorlds = plugin.getConfig().getStringList("AllowedWorlds");
     this.log.info("Count: " + this.allowedWorlds.size());
     return true;

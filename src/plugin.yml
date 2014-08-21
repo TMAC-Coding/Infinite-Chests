@@ -1,7 +1,7 @@
 name: InfiniteChests
 main: me.TMAC_Kratos.InfiniteChests.InfiniteChests
 author: TMAC_Kratos
-version: 0.3
+version: 0.3-PR
 description: >
              InfiniteChests. Have infinite chest of any item.
 permissions:

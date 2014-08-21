@@ -3,6 +3,7 @@ package me.TMAC_Kratos.InfiniteChests;
 import java.util.List;
 
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Server;
@@ -148,7 +149,9 @@ public class InfiniteChestsBlockListener
   {
     if ((event.getLine(0).equalsIgnoreCase("[infinitechest]")) || 
       (event.getLine(0).equalsIgnoreCase("[infchest]")) || 
-      (event.getLine(0).equalsIgnoreCase("[ic]")))
+      (event.getLine(0).equalsIgnoreCase("[ic]")) ||
+      (event.getLine(0).equalsIgnoreCase("§1[ic]")) ||
+      (event.getLine(0).equalsIgnoreCase("§1[infchest]")))
     {
       Player player = event.getPlayer();      
         if (!(player.hasPermission("infinitechests.placesign")) && !(player.isOp()))
@@ -157,7 +160,7 @@ public class InfiniteChestsBlockListener
           World world = event.getBlock().getWorld();
           event.getBlock().setType(Material.AIR);
           world.dropItemNaturally(loc, new ItemStack(Material.SIGN, 1));
-          event.getPlayer().sendMessage("You can't create an InfiniteChest!");
+          event.getPlayer().sendMessage("You Don't Have Permisison To Create An InfiniteChest!");
           return;
         }
         Material mat = null;
@@ -172,7 +175,7 @@ public class InfiniteChestsBlockListener
         }
         else
         {
-          amount = "64";
+          amount = "15";
           mats = event.getLine(1);
         }
         try
@@ -197,23 +200,22 @@ public class InfiniteChestsBlockListener
           event.getPlayer().sendMessage("Invalid stack amount! example: 64");
           num = -1;
         }
-        if (mat == null || mat == Material.AIR)
+        if (mat == null && !(mats.equalsIgnoreCase("dumpster") || mats.equalsIgnoreCase("bin")))
         {
-          event.getPlayer().sendMessage("Invalid Material! example: WOOD:5");
+          event.getPlayer().sendMessage("Invalid Material! example: WOOD:5, Dumpster, or Bin");
           Location loc = event.getBlock().getLocation();
           World world = event.getBlock().getWorld();
           event.getBlock().setType(Material.AIR);
           world.dropItemNaturally(loc, new ItemStack(Material.SIGN, 1));
-        }
-        if ((num > 64) || (num < 1))
-        {
-          event.getPlayer().sendMessage("Invalid stack amount! example: 64");
-          Location loc = event.getBlock().getLocation();
-          World world = event.getBlock().getWorld();
-          event.getBlock().setType(Material.AIR);
-          world.dropItemNaturally(loc, new ItemStack(Material.SIGN, 1));
-        }
+        } 
+        if (event.getLine(0).contains("[inf") && this.plugin.Config.allowcolorcode)
+		        {
+	        event.setLine(0,"§1[infchest]");
+		        }
+        if (event.getLine(0).equalsIgnoreCase("[ic]") && this.plugin.Config.allowcolorcode)
+		        {
+	        event.setLine(0, "§1[ic]");
+		        }
       }
-    
   }
 }
