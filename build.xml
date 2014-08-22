@@ -27,10 +27,6 @@
     <target name="compile" depends="prepare">
         <javac destdir="${outputDir}">
             <src path="${sourceDir}"/>
-            <classpath>
-                <fileset dir="${libdir}">
-                    <include name="*.jar" />
-                </fileset>
             </classpath>
         </javac>
     </target>
