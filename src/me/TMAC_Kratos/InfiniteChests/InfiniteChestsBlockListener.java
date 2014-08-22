@@ -150,8 +150,8 @@ public class InfiniteChestsBlockListener
     if ((event.getLine(0).equalsIgnoreCase("[infinitechest]")) || 
       (event.getLine(0).equalsIgnoreCase("[infchest]")) || 
       (event.getLine(0).equalsIgnoreCase("[ic]")) ||
-      (event.getLine(0).equalsIgnoreCase(ChatColor.Blue+"[ic]")) ||
-      (event.getLine(0).equalsIgnoreCase(ChatColor.Blue+"[infchest]")))
+      (event.getLine(0).equalsIgnoreCase(ChatColor.BLUE+"[ic]")) ||
+      (event.getLine(0).equalsIgnoreCase(ChatColor.BLUE+"[infchest]")))
     {
       Player player = event.getPlayer();      
         if (!(player.hasPermission("infinitechests.placesign")) && !(player.isOp()))
@@ -210,11 +210,11 @@ public class InfiniteChestsBlockListener
         } 
         if (event.getLine(0).contains("[inf") && this.plugin.Config.allowcolorcode)
 		        {
-	        event.setLine(0,"ChatColor.Blue+[infchest]");
+	        event.setLine(0, ChatColor.BLUE+"[infchest]");
 		        }
         if (event.getLine(0).equalsIgnoreCase("[ic]") && this.plugin.Config.allowcolorcode)
 		        {
-	        event.setLine(0, "ChatColor.Blue+[ic]");
+	        event.setLine(0, ChatColor.BLUE+"[ic]");
 		        }
       }
   }
