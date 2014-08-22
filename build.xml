@@ -17,4 +17,5 @@
   	                        <fileset file="src/plugin.yml"/>
   			<fileset file="src/config.yml"/>
   	                </jar>
+  </target>
 </project>
