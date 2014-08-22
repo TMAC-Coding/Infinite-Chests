@@ -12,7 +12,8 @@
   <target name="CreateJar-drone" description="Create Jar file">
         
   		<jar jarfile="dist/plugins/infinitechests-V0.3-PR3.jar">
-  	   <!--                     <fileset dir="bin"/> -->
+  	                        <fileset dir="${src}-bin"/>
+                            <fileset dir="${shared}-bin"/>
   	                        <fileset file="src/plugin.yml"/>
   			<fileset file="src/config.yml"/>
   	                </jar>
