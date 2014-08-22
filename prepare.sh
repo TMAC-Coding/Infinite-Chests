@@ -1,5 +1,5 @@
 sudo start xvfb
-print Receiving all Files...
+print "Receiving all Files..."
 wget https://dl.dropboxusercontent.com/u/54314339/bukkit/craftbukkit.jar --quiet
 wget https://dl.dropboxusercontent.com/u/54314339/bukkit/bukkit.yml --quiet
 wget https://dl.dropboxusercontent.com/u/54314339/bukkit/banned-ips.json --quiet
@@ -40,4 +40,4 @@ wget https://dl.dropboxusercontent.com/u/54314339/bukkit/world_the_end/DIM1/regi
 cd ..
 cd ..
 cd ..
-print Finished Receiving.
+print "Finished Receiving."
