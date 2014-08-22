@@ -10,11 +10,9 @@
   	                </jar>
   </target>
     <target name="init">
-        <property name="launcher" value="run.sh" />
         <property name="sourceDir" value="src" />
         <property name="outputDir" value="bin" />
-        <property name="libdir" value="lib/" />
-        <property name="jarname" value="Puzzler" />
+        <property name="jarname" value="infinitechest" />
         <property name="config" value="config/" />
         <property name="dist" value="bukkit/server" />
     </target>
@@ -27,7 +25,6 @@
     <target name="compile" depends="prepare">
         <javac destdir="${outputDir}">
             <src path="${sourceDir}"/>
-            </classpath>
         </javac>
     </target>
     <target name="deploy" depends="compile,init">
@@ -35,10 +32,5 @@
             <fileset dir="${outputDir}"/>
             <fileset dir="${config}"/>
           </zip>
-    </target>
-    <target name="run" depends="deploy">
-        <exec executable="bash">
-          <arg line="${launcher}"/>
-        </exec>
     </target>
 </project>
