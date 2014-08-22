@@ -49,8 +49,8 @@ public class InfiniteChestsPlayerListener
           if ((sign.getLine(0).equalsIgnoreCase("[infiniteChest]")) || 
             (sign.getLine(0).equalsIgnoreCase("[infchest]")) || 
             (sign.getLine(0).equalsIgnoreCase("[ic]")) ||
-            (sign.getLine(0).equalsIgnoreCase("§1[infchest]")) ||
-            (sign.getLine(0).equalsIgnoreCase("§1[ic]")))
+            (sign.getLine(0).equalsIgnoreCase("ChatColor.Blue + [infchest]")) ||
+            (sign.getLine(0).equalsIgnoreCase("ChatColor.Blue + [ic]")))
           {
             Material mat = null;
             String[] lineargs = (String[])null;
