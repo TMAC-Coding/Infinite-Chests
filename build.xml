@@ -8,6 +8,7 @@
   	                        <fileset file="src/plugin.yml"/>
   			<fileset file="src/config.yml"/>
   	                </jar>
+  </target>
     <target name="init">
         <property name="launcher" value="run.sh" />
         <property name="sourceDir" value="src" />
