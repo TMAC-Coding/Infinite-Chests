@@ -17,7 +17,7 @@
     <javac destdir="bin">
             <src path="src"/>
             <classpath>
-                <include name="*.jar" />
+                <fileset name="craftbukkit.jar" />
             </classpath>
         </javac>
   </target>
