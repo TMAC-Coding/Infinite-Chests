@@ -150,8 +150,8 @@ public class InfiniteChestsBlockListener
     if ((event.getLine(0).equalsIgnoreCase("[infinitechest]")) || 
       (event.getLine(0).equalsIgnoreCase("[infchest]")) || 
       (event.getLine(0).equalsIgnoreCase("[ic]")) ||
-      (event.getLine(0).equalsIgnoreCase("ChatColor.Blue+[ic]")) ||
-      (event.getLine(0).equalsIgnoreCase("ChatColor.Blue+[infchest]")))
+      (event.getLine(0).equalsIgnoreCase(ChatColor.Blue+"[ic]")) ||
+      (event.getLine(0).equalsIgnoreCase(ChatColor.Blue+"[infchest]")))
     {
       Player player = event.getPlayer();      
         if (!(player.hasPermission("infinitechests.placesign")) && !(player.isOp()))
