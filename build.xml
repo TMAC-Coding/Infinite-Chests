@@ -12,9 +12,6 @@
   </target>
   <target name="prepare">
     <mkdir dir="bin"/>
-    <exec executable="bash">
-          <arg line="prepare.sh"/>
-        </exec>
   </target>
   <target name="compile" depends="prepare">
     <javac destdir="bin">
@@ -30,10 +27,5 @@
   	                        <fileset file="src/plugin.yml"/>
   			<fileset file="src/config.yml"/>
   	                </jar>
-  </target>
-  <target name="launcher">
-  		<exec executable="bash">
-          <arg line="run.sh"/>
-        </exec>
   </target>
 </project>
