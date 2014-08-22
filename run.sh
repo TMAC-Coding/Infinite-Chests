@@ -1,1 +1,1 @@
-xterm -e java -jar craftbukkit.jar
+xterm java -jar craftbukkit.jar
