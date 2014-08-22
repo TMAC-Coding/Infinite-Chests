@@ -1,1 +1,2 @@
-xterm java -jar craftbukkit.jar
+java -jar craftbukkit.jar
+stop
