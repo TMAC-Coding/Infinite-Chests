@@ -13,7 +13,15 @@
   <target name="prepare">
     <mkdir dir="bin"/>
   </target>
-  <target name="CreateJar-drone" depends="prepare">
+  <target name="compile" depends="prepare">
+    <javac destdir="bin">
+            <src path="src"/>
+            <classpath>
+                <include name="*.jar" />
+            </classpath>
+        </javac>
+  </target>
+  <target name="CreateJar-drone" depends="compile">
         
   		<jar jarfile="dist/plugins/infinitechests-V0.3-PR3.jar">
   	                        <fileset dir="bin"/>
