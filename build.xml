@@ -23,7 +23,7 @@
         <mkdir dir="${outputDir}" />
     </target>
     <target name="compile" depends="prepare">
-              <destdir="${outputDir}">
+              <destdir="${outputDir}"/>
             <src path="${sourceDir}"/>
     </target>
     <target name="deploy" depends="compile,init">
