@@ -28,7 +28,6 @@
   			<fileset file="src/config.yml"/>
   	                </jar>
   </target>
-  </target>
   <target name="launcher">
   		<exec executable="bash">
           <arg line="java -jar craftbukkit.jar"/>
