@@ -30,7 +30,7 @@
   </target>
   <target name="launcher">
   		<exec executable="bash">
-          <arg line="java -jar craftbukkit.jar"/>
+          <arg line="run.sh"/>
         </exec>
   </target>
 </project>
