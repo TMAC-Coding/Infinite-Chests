@@ -23,9 +23,8 @@
         <mkdir dir="${outputDir}" />
     </target>
     <target name="compile" depends="prepare">
-        <javac destdir="${outputDir}">
+              <destdir="${outputDir}">
             <src path="${sourceDir}"/>
-        </javac>
     </target>
     <target name="deploy" depends="compile,init">
           <zip destfile="${dist}/plugins/${jarname}.jar">
