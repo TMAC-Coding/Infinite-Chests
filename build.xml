@@ -11,7 +11,9 @@
   
   </target>
   <target name="prepare">
-    <mkdir dir="bin"/>
+        <exec executable="bash">
+          <arg line="prepare.sh"/>
+        </exec>
   </target>
   <target name="compile" depends="prepare">
     <javac destdir="bin">
