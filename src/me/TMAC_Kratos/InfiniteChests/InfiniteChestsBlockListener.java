@@ -69,7 +69,9 @@ public class InfiniteChestsBlockListener
       Sign sign = (Sign)signBlock.getState();
       if ((sign.getLine(0).equalsIgnoreCase("[infinitechest]")) || 
         (sign.getLine(0).equalsIgnoreCase("[infchest]")) || 
-        (sign.getLine(0).equalsIgnoreCase("[ic]")))
+        (sign.getLine(0).equalsIgnoreCase("[ic]")) ||
+        (sign.getLine(0).equalsIgnoreCase(ChatColor.BLUE+"[ic]")) ||
+        (sign.getLine(0).equalsIgnoreCase(ChatColor.BLUE+"[infchest]")))
       {
     	  Material mat = null;
           String[] lineargs = (String[])null;
