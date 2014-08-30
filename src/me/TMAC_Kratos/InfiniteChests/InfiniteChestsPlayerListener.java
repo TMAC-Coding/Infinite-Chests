@@ -11,12 +11,15 @@ import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
 import org.bukkit.block.Chest;
+import org.bukkit.block.Furnace;
 import org.bukkit.block.Sign;
 import org.bukkit.entity.Player;
+import org.bukkit.event.Event.Result;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
+import org.bukkit.inventory.FurnaceInventory;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.InventoryHolder;
 import org.bukkit.inventory.ItemStack;
@@ -38,7 +41,7 @@ public class InfiniteChestsPlayerListener
     if (event.getAction() == Action.RIGHT_CLICK_BLOCK)
     {
       Block block = event.getClickedBlock();
-      if (block.getType().name().contains("CHEST") && block.getType() != Material.ENDER_CHEST || block.getType() == Material.DISPENSER || block.getType() == Material.DROPPER)
+      if (block.getType().name().contains("CHEST") && block.getType() != Material.ENDER_CHEST || block.getType() == Material.DISPENSER || block.getType() == Material.DROPPER || block.getType() == Material.FURNACE)
       {
         World world = event.getPlayer().getWorld();
         Location loc = event.getClickedBlock().getLocation();
@@ -122,6 +125,8 @@ public class InfiniteChestsPlayerListener
               }
               for (Iterator<Block> iterator = chests.iterator(); iterator.hasNext();)
               {
+            	  if (block.getType().name().contains("CHEST") && block.getType() != Material.ENDER_CHEST || block.getType() == Material.DISPENSER || block.getType() == Material.DROPPER)
+            	  {
                 InventoryHolder chest = (InventoryHolder)iterator.next().getState();
                 try
                 {
@@ -141,17 +146,52 @@ public class InfiniteChestsPlayerListener
                         iterator.next().getState().update();
                         }
                   }
-                  else
-                  {
-                    event.getPlayer().sendMessage("Error retrieving chest!");
-                  }
                 }
                 catch (Exception localException) {}
               }
-            }
-            else
-            {
-              event.getPlayer().sendMessage("Sign in wrong format! Item ID not proper!");
+            	  else
+            	  {
+            	  if (block.getType() == Material.FURNACE)
+            	  {
+            		  if (mat == Material.COAL || mat == Material.COAL_BLOCK || mat == Material.LOG || mat == Material.WOOD)
+            		  {
+            		  Furnace furnace = (Furnace)iterator.next().getState();
+                      FurnaceInventory inv = furnace.getInventory();
+                      ItemStack stack = new ItemStack(mat.getId(), amount, (byte)meta);
+                      inv.setFuel(stack);  
+            		  }
+            		  else
+            		  {
+            			  if (mat == null || mat == Material.AIR)
+            			  {
+            			      event.getClickedBlock().getRelative(BlockFace.UP).setType(Material.AIR);
+            		          world.dropItemNaturally(loc, new ItemStack(Material.SIGN, 1));
+            				  event.getPlayer().sendMessage(ChatColor.DARK_RED+"Dumpster Mode Is Not Compatible With The Furnace!");
+            				  event.setUseInteractedBlock(Result.DENY);
+            				  event.setUseItemInHand(Result.DENY);
+            				  return;
+            			  }
+            			  else
+            			  {
+            				event.getClickedBlock().getRelative(BlockFace.UP).setType(Material.AIR);
+            		        world.dropItemNaturally(loc, new ItemStack(Material.SIGN, 1));
+            				event.getPlayer().sendMessage(ChatColor.DARK_RED+"Invalid Fuel Type!");
+            				event.setUseInteractedBlock(Result.DENY);
+          				    event.setUseItemInHand(Result.DENY);
+            				return;
+            			  }
+            		  }
+            	  }
+            	  else
+            	  {
+            		  event.getClickedBlock().getRelative(BlockFace.UP).setType(Material.AIR);
+      		          world.dropItemNaturally(loc, new ItemStack(Material.SIGN, 1));
+            		  event.getPlayer().sendMessage(ChatColor.DARK_RED+"Can Not Find A Valid Container!");
+            		  event.setUseInteractedBlock(Result.DENY);
+    				  event.setUseItemInHand(Result.DENY);
+      				return; 
+            	  }
+            	  }
             }
           }
           else {}
@@ -159,4 +199,5 @@ public class InfiniteChestsPlayerListener
       }
     }
   }
+}
 }

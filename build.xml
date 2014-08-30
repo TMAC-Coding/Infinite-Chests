@@ -24,7 +24,7 @@
         </javac>
   </target>
   <target name="CreateJar-drone" depends="compile">
-  		<jar jarfile="dist/plugins/infinitechests-V0.3-PR3.jar">
+  		<jar jarfile="dist/plugins/infinitechests-V0.3-PR4.jar">
   	                        <fileset dir="bin"/>
   	                        <fileset file="src/plugin.yml"/>
   			<fileset file="src/config.yml"/>
