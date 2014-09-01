@@ -323,7 +323,7 @@ implements Listener
 			loc.setY(loc.getY() - 1.0D);
 			Block container = world.getBlockAt(loc);
 			
-			if (!(container.getType().name().contains("CHEST") && container.getType() != Material.ENDER_CHEST || container.getType() == Material.DISPENSER || container.getType() == Material.DROPPER || container.getType() == Material.FURNACE))
+			if (!(container.getType().name().contains("CHEST") && container.getType() != Material.ENDER_CHEST || container.getType() == Material.DISPENSER || container.getType() == Material.DROPPER || container.getType().name().contains("FURNACE")))
 			{
 				event.getBlock().setType(Material.AIR);
 				world.dropItemNaturally(loc1, new ItemStack(Material.SIGN, 1));
