@@ -152,7 +152,7 @@ implements Listener
 								}
 							} else if (block.getType() == Material.FURNACE)
 							{
-								if (mat == Material.COAL || mat == Material.COAL_BLOCK || mat== Material.LAVA_BUCKET || mat == Material.LOG || mat.name().contains("WOOD"))
+								if (mat.name().contains("COAL") || mat== Material.LAVA_BUCKET || mat == Material.LOG || mat.name().contains("WOOD") && mat != Material.WOOD_DOOR || mat.name().contains("SAPLING") || mat.name().contains("CHEST") && mat != Material.ENDER_CHEST || mat == Material.TRAP_DOOR || mat == Material.BOOKSHELF || mat == Material.STICK)
 								{
 									Furnace furnace = (Furnace)event.getClickedBlock().getState();
 									FurnaceInventory inv = furnace.getInventory();

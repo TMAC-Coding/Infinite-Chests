@@ -316,6 +316,20 @@ implements Listener
 			{
 				event.setLine(0, ChatColor.BLUE+"[ic]");
 			}
+			Block block = event.getBlock();
+			World world = block.getWorld();
+			Location loc = block.getLocation();
+			Location loc1 = block.getLocation();
+			loc.setY(loc.getY() - 1.0D);
+			Block container = world.getBlockAt(loc);
+			
+			if (!(container.getType().name().contains("CHEST") && container.getType() != Material.ENDER_CHEST || container.getType() == Material.DISPENSER || container.getType() == Material.DROPPER || container.getType() == Material.FURNACE))
+			{
+				event.getBlock().setType(Material.AIR);
+				world.dropItemNaturally(loc1, new ItemStack(Material.SIGN, 1));
+				event.getPlayer().sendMessage(ChatColor.DARK_RED+"No Valid Container Found!");
+			}
+			
 		}
 	}
 }
